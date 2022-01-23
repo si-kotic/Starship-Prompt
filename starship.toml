@@ -1,0 +1,170 @@
+# ~/.config/starship.toml
+
+# Change the default prompt format
+# add_newline = false
+format = """\
+[╭╴](243)$env_var\
+$battery\
+$username$sudo\
+$hostname\
+$shlvl\
+$singularity\
+$kubernetes\
+$directory\
+$vcsh\
+$git_branch\
+$git_commit\
+$git_state\
+$git_metrics\
+$git_status\
+$hg_branch\
+$docker_context\
+$package\
+$cmake\
+$cobol\
+$dart\
+$deno\
+$dotnet\
+$elixir\
+$elm\
+$erlang\
+$golang\
+$helm\
+$java\
+$julia\
+$kotlin\
+$lua\
+$nim\
+$nodejs\
+$ocaml\
+$perl\
+$php\
+$pulumi\
+$purescript\
+$python\
+$rlang\
+$red\
+$ruby\
+$rust\
+$scala\
+$swift\
+$terraform\
+$vlang\
+$vagrant\
+$zig\
+$nix_shell\
+$conda\
+$memory_usage\
+$aws\
+$gcloud\
+$openstack\
+$azure\
+$crystal\
+$custom\
+$cmd_duration\
+$jobs\
+$time\
+$status\
+$shell
+[╰─](243)$character"""
+continuation_prompt = "[  ╰─ ](243)"
+
+# Change the default prompt characters
+[character]
+success_symbol = "[](243)"
+error_symbol = "[](243)"
+
+# Shows an icon that should be included by zshrc script based on the distribution or os
+[env_var.STARSHIP_DISTRO]
+format = '[$env_value](bold white) '
+variable = "STARSHIP_DISTRO"
+disabled = false
+
+# Battery
+[battery]
+format = "[$symbol$percentage]($style) "
+
+[[battery.display]]
+threshold = 5
+style = "bold red"
+
+[[battery.display]]
+threshold = 20
+style = "bold fg:208"
+
+[[battery.display]]
+threshold = 100
+style = "bold fg:243"
+
+# Shows the username
+[username]
+style_user = "white bold"
+style_root = "black bold"
+format = "[$user]($style) "
+disabled = false
+show_always = true
+
+# Configure Directory Path
+[directory]
+truncation_length = 3
+truncation_symbol = "…/"
+home_symbol = " ~"
+read_only_style = "197"
+read_only = "  "
+format = "[in](243) [$path]($style)[$read_only]($read_only_style) "
+
+# Configure Git
+[git_branch]
+symbol = " "
+format = "[on](243) [$symbol$branch]($style) "
+truncation_length = 6
+truncation_symbol = "…/"
+style = "bold green"
+
+[git_status]
+format = '[\($all_status$ahead_behind\)]($style) '
+style = "bold green"
+conflicted = "🏳"
+up_to_date = " "
+untracked = " "
+ahead = "⇡${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+behind = "⇣${count}"
+stashed = " "
+modified = " "
+staged = '[++\($count\)](green)'
+renamed = "襁 "
+deleted = " "
+
+# Configure Docker
+[docker_context]
+format = "via [ $context](bold blue) "
+
+# Configure Python
+[python]
+symbol = " "
+python_binary = "python3"
+format = '[via](243) [${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+
+# Configure Sudo Status
+[sudo]
+disabled = false
+# symbol = "             "
+symbol = ""
+format = '[\($symbol\)](bold blue) '
+
+# Configure Time
+[time]
+style = "bold purple"
+time_format = "%a %d %b %Y %R"
+format = "[on](fg:243) [$time]($style) "
+disabled = false
+
+# Configure Shell display
+[shell]
+powershell_indicator = ""
+# bash_indicator = ""
+# zsh_indicator = ""
+style = "bold dimmed"
+format = '[$indicator]($style)'
+disabled = true
