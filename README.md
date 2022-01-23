@@ -2,8 +2,8 @@
 
 ## Contents
 * .TOML file to configure Starship Prompt
-* zsh/.zshrc Profile for configuring ZSH
-* bash/.bashrc Profile for configuring Bash
+* `zsh/.zshrc` Profile for configuring ZSH
+* `bash/.bashrc` Profile for configuring Bash
 
 ## Pre-requisites
 
