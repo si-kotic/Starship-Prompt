@@ -104,6 +104,12 @@ format = "[$user]($style) "
 disabled = false
 show_always = true
 
+# Shows the hostname
+[hostname]
+ssh_only = true
+style = "bold dimmed green"
+format = "[on](243) [$hostname ]($style)"
+
 # Configure Directory Path
 [directory]
 truncation_length = 3
